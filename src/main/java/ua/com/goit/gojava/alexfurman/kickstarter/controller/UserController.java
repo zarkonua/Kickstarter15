@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import ua.com.goit.gojava.alexfurman.kickstarter.entity.Project;
+import ua.com.goit.gojava.alexfurman.kickstarter.entity.User;
 import ua.com.goit.gojava.alexfurman.kickstarter.service.CategoryService;
 import ua.com.goit.gojava.alexfurman.kickstarter.service.ProjectsService;
+import ua.com.goit.gojava.alexfurman.kickstarter.service.UserRewardService;
 import ua.com.goit.gojava.alexfurman.kickstarter.service.UserService;
 
 @Controller
@@ -29,6 +31,9 @@ public class UserController {
 
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Autowired
+	private UserRewardService userRewardService;
 		
 	@ModelAttribute("project")
 	public Project constructProject() {
@@ -38,10 +43,14 @@ public class UserController {
 	@RequestMapping("/account")
 	public String account(Model model, Principal principal) {
 		String name = principal.getName();
-		model.addAttribute("user", userService.findOneWithProjects(name));
+		int userID = userService.findOneWithProjects(name);
+		User user = userService.findOneWithProjects(userID);
+		model.addAttribute("user", user);
 		model.addAttribute("projects", projectsService.findByUser(userService.findOneWithProjects(name)));
 		model.addAttribute("categories", categoryService.getCategories());
+		model.addAttribute("userrewards", user.getRewards());
 		return "account";
+		
 	}
 	
 	@RequestMapping(value = "/account", method = RequestMethod.POST)

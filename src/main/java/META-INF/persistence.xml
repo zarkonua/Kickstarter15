@@ -8,5 +8,6 @@
 		<class>ua.com.goit.gojava.alexfurman.kickstarter.entity.Quote</class>
 		<class>ua.com.goit.gojava.alexfurman.kickstarter.entity.QuestionAndAnswers</class>
 		<class>ua.com.goit.gojava.alexfurman.kickstarter.entity.Reward</class>
+		<class>ua.com.goit.gojava.alexfurman.kickstarter.entity.UserReward</class>
 	</persistence-unit>
 </persistence>

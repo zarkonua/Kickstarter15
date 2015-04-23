@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
@@ -45,8 +46,8 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<Project> projects;
 	
-//	@ManyToMany
-//	private List<Reward> rewards;
+	@ManyToMany(mappedBy = "users", fetch=FetchType.EAGER)
+	private List<Reward> rewards;
 	
 	public boolean isEnabled() {
 		return enabled;
@@ -104,4 +105,13 @@ public class User {
 		this.projects = projects;
 	}
 
+	public List<Reward> getRewards() {
+		return rewards;
+	}
+
+	public void setRewards(List<Reward> rewards) {
+		this.rewards = rewards;
+	}
+
+	
 }

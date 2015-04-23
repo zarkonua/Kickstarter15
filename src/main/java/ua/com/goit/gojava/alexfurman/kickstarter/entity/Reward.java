@@ -1,10 +1,14 @@
 package ua.com.goit.gojava.alexfurman.kickstarter.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -20,15 +24,14 @@ public class Reward {
 	private int amount;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
-
-	@ManyToOne
 	@JoinColumn(name = "project_id")
 	private Project project;
 		
-//	@ManyToMany
-//	private List<User> users;
+	@ManyToMany
+	@JoinTable(name = "reward_user", 
+	joinColumns={@JoinColumn(name="reward_id")}, 
+	inverseJoinColumns={@JoinColumn(name="user_id")})
+	private List<User> users;
 
 	public Integer getId() {
 		return id;
@@ -54,20 +57,20 @@ public class Reward {
 		this.amount = amount;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	public Project getProject() {
 		return project;
 	}
 
 	public void setProject(Project project) {
 		this.project = project;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 	
 }

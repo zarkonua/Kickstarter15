@@ -16,10 +16,10 @@ public class QuoteService {
 	private QuoteRepository quoteRepository;
 	
 	public Quote getRandomQuote() {
+		List<Quote> quotesList = getQuotes();
 		Random random = new Random();
-		
-		int index = random.nextInt((int) quoteRepository.count());
-		return quoteRepository.findOne(index + 1);
+		int index = random.nextInt((int) quotesList.size());
+		return quotesList.get(index);
 	}
 
 	public List<Quote> getQuotes() {	
