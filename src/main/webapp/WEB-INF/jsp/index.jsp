@@ -8,7 +8,7 @@
 			<tr>
 				<td>
 					<strong>
-					<a href="<spring:url value="/projects/${category.id}.html" />">
+					<a href="<spring:url value="/category/${category.id}.html" />">
 						${category.name}
 					</a>
 					</strong>

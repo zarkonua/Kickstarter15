@@ -58,7 +58,7 @@ public class ProjectsController {
 		return new UserReward();
 	}
 
-	@RequestMapping("/projects/{id}")
+	@RequestMapping("/category/{id}")
 	public String projects(Model model, @PathVariable int id) {
 		model.addAttribute("projects", projectsService.findByCategory(id));
 		return "projects";
