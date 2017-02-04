@@ -21,7 +21,7 @@
 			<td><c:out value="${project.goal}" /></td>
 		</tr>
 		<tr>
-			<td>Pledged</td>
+			<td>Collected</td>
 			<td><c:out value="${project.pledged}" /></td>
 		</tr>
 		<tr>
