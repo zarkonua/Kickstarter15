@@ -75,7 +75,6 @@ public class InitDbService {
 		project1.setLinksToVideo("link");
 		project1.setHistory("history1");
 		project1.setDaysLeft(26);
-		//project1.setQuestionAnswers("qa1");
 		project1.setUser(userAdmin);
 		projectRepository.save(project1);
 
@@ -88,7 +87,7 @@ public class InitDbService {
 		project2.setLinksToVideo("link2");
 		project2.setHistory("history2");
 		project2.setDaysLeft(54);
-		//project2.setQuestionAnswers("qa2");
+		project2.setUser(userAdmin);
 		projectRepository.save(project2);
 
 		Project project3 = new Project();
@@ -100,7 +99,7 @@ public class InitDbService {
 		project3.setLinksToVideo("link3");
 		project3.setHistory("history3");
 		project3.setDaysLeft(34);
-		//project3.setQuestionAnswers("qa3");
+		project3.setUser(userAdmin);
 		projectRepository.save(project3);
 
 		Project project4 = new Project();
@@ -112,7 +111,7 @@ public class InitDbService {
 		project4.setLinksToVideo("link4");
 		project4.setHistory("history4");
 		project4.setDaysLeft(54);
-		//project4.setQuestionAnswers("qa4");
+		project4.setUser(userAdmin);
 		projectRepository.save(project4);
 
 		QuestionAndAnswers questionAndAnswers1 = new QuestionAndAnswers();
