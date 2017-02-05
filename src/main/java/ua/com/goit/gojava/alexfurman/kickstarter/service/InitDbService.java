@@ -50,11 +50,20 @@ public class InitDbService {
 		userAdmin.setName("admin");
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		userAdmin.setPassword(encoder.encode("admin"));
-		List<Role> roles = new ArrayList<Role>();
-		roles.add(roleAdmin);
-		roles.add(roleUser);
-		userAdmin.setRoles(roles);
+		List<Role> adminRoles = new ArrayList<Role>();
+		adminRoles.add(roleAdmin);
+		userAdmin.setRoles(adminRoles);
+
+		User testUser = new User();
+		testUser.setEnabled(true);
+		testUser.setName("testUser");
+		testUser.setPassword(encoder.encode("123456"));
+		List<Role> userRoles = new ArrayList<Role>();
+		userRoles.add(roleUser);
+		testUser.setRoles(userRoles);
+
 		userRepository.save(userAdmin);
+		userRepository.save(testUser);
 
         Category category1 = new Category();
 		category1.setName("category1");
@@ -75,7 +84,7 @@ public class InitDbService {
 		project1.setLinksToVideo("link");
 		project1.setHistory("history1");
 		project1.setDaysLeft(26);
-		project1.setUser(userAdmin);
+		project1.setUser(testUser);
 		projectRepository.save(project1);
 
 		Project project2 = new Project();
@@ -87,7 +96,7 @@ public class InitDbService {
 		project2.setLinksToVideo("link2");
 		project2.setHistory("history2");
 		project2.setDaysLeft(54);
-		project2.setUser(userAdmin);
+		project2.setUser(testUser);
 		projectRepository.save(project2);
 
 		Project project3 = new Project();

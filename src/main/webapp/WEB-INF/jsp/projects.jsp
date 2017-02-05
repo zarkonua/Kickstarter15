@@ -7,11 +7,11 @@
 <table class="table table-bordered table-hover table-striped">
 	<thead>
 		<tr>
-			<th>title</th>
-			<th>description</th>
-			<th>goal</th>
-			<th>pledged</th>
-			<th>days left</th>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Goal</th>
+			<th>Collected</th>
+			<th>Days left</th>
 		</tr>
 	</thead>
 	<tbody>
